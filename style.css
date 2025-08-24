@@ -1,0 +1,93 @@
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #ffedcc, #b3ee9c);
+  margin: 0;
+  overflow: hidden;
+}
+
+ .sobre {
+  width: 420px;
+  height: 340px;
+  background: #fff;
+  border: 2px solid #172c12;
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+  transform-style: preserve-3d;
+  transition: transform 1s;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.solapa {
+  position: absolute;
+  width: 100%;
+  height: 50%;
+  background: #d4ff6f;
+  top: 0;
+  left: 0;
+  transform-origin: top;
+  transition: transform 1s;
+  border-bottom: 2px solid #172c12;
+}
+
+.mensaje {
+  opacity: 0;
+  padding: 20px;
+  text-align: center;
+  transition: opacity 1s 0.5s;
+}
+
+.sobre.abierta .solapa {
+  transform: rotateX(-180deg);
+}
+
+.sobre.abierta .mensaje {
+  opacity: 1;
+}
+
+button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background: #75a845;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  z-index: 2;
+}
+
+#corazones {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.corazon {
+  position: absolute;
+  bottom: -50px;
+  font-size: 24px;
+  animation: flotar linear forwards;
+  opacity: 0.8;
+}
+
+@keyframes flotar {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(-110vh) scale(1.5);
+    opacity: 0;
+  }
+}
