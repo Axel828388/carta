@@ -13,8 +13,8 @@ body {
  .sobre {
   width: 95vw;
   max-width: 420px;
-  height: auto;
-  min-height: 340px;
+  min-height: 70vh;
+  height: 80vh;
   background: #fff;
   border: 2px solid #172c12;
   border-radius: 10px;
@@ -61,18 +61,23 @@ body {
   width: 100%;
   box-sizing: border-box;
   display: block;
-  max-height: none;
-  overflow: visible;
+  max-height: 32vh;
+  overflow-y: auto;
+}
+@media (max-width: 500px) {
+  .carta-real {
+    max-height: 28vh;
+  }
 }
 
 @media (max-width: 500px) {
   .sobre {
-    max-width: 98vw;
-    min-height: 220px;
+    max-width: 99vw;
+    min-height: 80vh;
+    height: 90vh;
   }
   .carta-real {
     font-size: 1rem;
-    max-height: 110px;
     padding: 10px 6px 8px 6px;
   }
   .mensaje img {
