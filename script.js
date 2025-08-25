@@ -1,8 +1,7 @@
-// Abrir carta
+// Abrir carta tocando la carta
 const sobre = document.getElementById('sobre');
-const boton = document.getElementById('abrir');
 
-boton.addEventListener('click', () => {
+sobre.addEventListener('click', () => {
   sobre.classList.toggle('abierta');
 });
 
