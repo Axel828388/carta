@@ -11,8 +11,10 @@ body {
 }
 
  .sobre {
-  width: 420px;
-  height: 340px;
+  width: 95vw;
+  max-width: 420px;
+  height: auto;
+  min-height: 340px;
   background: #fff;
   border: 2px solid #172c12;
   border-radius: 10px;
@@ -22,6 +24,7 @@ body {
   transition: transform 1s;
   cursor: pointer;
   z-index: 1;
+  box-sizing: border-box;
 }
 
 .solapa {
@@ -38,9 +41,39 @@ body {
 
 .mensaje {
   opacity: 0;
-  padding: 20px;
+  padding: 20px 10px 10px 10px;
   text-align: center;
   transition: opacity 1s 0.5s;
+  box-sizing: border-box;
+}
+
+.carta-real {
+  background: #f8ffe6;
+  color: #222;
+  border-radius: 10px;
+  margin: 18px 0 0 0;
+  padding: 16px 14px 12px 14px;
+  font-size: 1.08rem;
+  text-align: left;
+  max-height: 160px;
+  overflow-y: auto;
+  box-shadow: 0 2px 8px #b3ee9c33;
+  line-height: 1.5;
+}
+
+@media (max-width: 500px) {
+  .sobre {
+    max-width: 98vw;
+    min-height: 220px;
+  }
+  .carta-real {
+    font-size: 1rem;
+    max-height: 110px;
+    padding: 10px 6px 8px 6px;
+  }
+  .mensaje img {
+    max-height: 120px;
+  }
 }
 
 .sobre.abierta .solapa {
