@@ -230,8 +230,15 @@ document.addEventListener('DOMContentLoaded', function(){
     function setPlaying(on){
         if(record) record.classList.toggle('playing', !!on);
         if(needle) needle.classList.toggle('playing', !!on);
-        // no external fallback link configured
+        // update aria on audio
         if(on) audio.setAttribute('aria-label','Reproduciendo'); else audio.setAttribute('aria-label','Pausado');
+        // update fallback play button text/state if present
+        if(typeof playBtn !== 'undefined' && playBtn){
+            try{
+                playBtn.innerText = on ? 'Pausar' : 'Reproducir';
+                playBtn.setAttribute('aria-pressed', on ? 'true' : 'false');
+            }catch(e){ /* ignore if DOM changed */ }
+        }
     }
 
     // Bind click on the vinyl element
