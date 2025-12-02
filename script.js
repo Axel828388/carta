@@ -253,7 +253,15 @@ document.addEventListener('DOMContentLoaded', function(){
 
     // When audio ends, stop animations
     audio.addEventListener('ended', ()=>{ setPlaying(false); });
+    // When audio can play, clear any warning message
+    const vinylNoteEl = document.querySelector('.vinyl-note');
+    audio.addEventListener('canplay', ()=>{
+        if(vinylNoteEl) vinylNoteEl.innerText = 'Toca el disco para que suene tu nueva canción';
+    });
 
-    // If audio fails to load, log error (no external fallback link configured)
-    audio.addEventListener('error', ()=>{ console.warn('Audio failed to load'); });
+    // If audio fails to load, log error and show a visible hint to the user
+    audio.addEventListener('error', (ev)=>{
+        console.warn('Audio failed to load or is blocked', ev);
+        if(vinylNoteEl) vinylNoteEl.innerText = 'No se pudo cargar la canción. Usa el botón "Reproducir" o revisa la conexión.';
+    });
 });
