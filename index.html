@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuestra Carta 💜</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="heart-bg"></div>
+
+    <div class="container">
+        <!-- Login / pseudologin modal: requiere apodo antes de abrir la carta -->
+        <div id="loginModal" class="login-modal" role="dialog" aria-modal="true" aria-label="Acceso a la carta">
+            <div class="login-card">
+                <h2>Un momento…</h2>
+                <p class="login-sub">Escribe tu apodo para entrar.</p>
+                <p class="login-hint">Pista: es un apodo tierno relacionado con una risa pequeña.</p>
+                <input id="loginInput" type="text" placeholder="Tu apodo..." aria-label="Apodo de acceso">
+                <div class="login-actions">
+                    <button id="loginBtn" class="primary">Entrar</button>
+                    <button id="hintBtn" class="hint-btn">¿Necesitas una pista?</button>
+                </div>
+                <p id="loginMsg" class="login-msg" aria-live="polite"></p>
+            </div>
+        </div>
+
+        <!-- Vinyl player (tap the record to play/pause) -->
+        <div class="vinyl-section">
+            <div class="vinyl-note">Toca el disco para que suene tu nueva canción</div>
+            <div id="vinyl" class="vinyl" role="button" tabindex="0" aria-label="Reproducir canción">
+                <div class="record">
+                    <div class="grooves"></div>
+                    <div class="label">💜</div>
+                </div>
+                <div class="needle" aria-hidden="true"></div>
+            </div>
+            
+
+            <!-- Audio source: set data-audio-url to your MP3 file path or full URL. Example: data-audio-url="audio/smithereens.mp3" -->
+            <audio id="audioPlayer" data-audio-url="smithereens.mp3" preload="none"></audio>
+        </div>
+        <!-- Sobre cerrado -->
+        <div id="envelopeWrap" class="envelope-wrap">
+            <div id="openIndicator" class="open-indicator" aria-hidden="true">Toca para abrir 💌</div>
+            <div id="envelope" class="envelope" onclick="openLetter()">
+            <div class="top"></div>
+            <div class="paper">Toca para abrir 💌</div>
+            <div class="bottom"></div>
+            </div>
+        </div>
+
+        <!-- Carta abierta -->
+        <div id="letter" class="letter hidden" role="region" aria-label="Carta">
+            <button id="closeLetter" class="close-btn" aria-label="Cerrar carta">✕</button>
+            <h1>Para ti ❤️</h1>
+
+            <!-- Secciones largas -->
+            <div class="section">
+                <h2>✨ Introducción</h2>
+                <p>
+                    Por cada día que pasa me haces más y más feliz. Siento que por fin estoy donde pertenezco,
+                    al lado de quien me entiende y me acepta. Gracias por todo lo que haces por mí, por ser mi
+                    apoyo incondicional y por estar siempre cuando te necesito. Quiero que sepas que estoy totalmente
+                    convencido de querer que seas el resto de mi vida; me esforzaré y haré lo que sea necesario
+                    para que eso sea posible.
+                </p>
+                <p>
+                    Esta carta nace de esas pequeñas certezas que sentimos en silencio: las mañanas más claras, las
+                    risas compartidas en la madrugada y los momentos en los que con simples palabras nos basta para entendernos.
+                    Quiero que esto sea un refugio de palabras sinceras —no para decir cosas nuevas, sino para que
+                    vuelvas a leer lo que a veces se queda en el corazón. Aquí te dejo mis pensamientos; cada línea
+                    viene con gratitud y la promesa de cuidarte siempre.
+                </p>
+            </div>
+
+            <div class="section">
+                <h2>💗 Capítulo 1</h2>
+                <p>
+                    Quiero ser el hombre al que acudas cuando te sientas triste y también cuando te sientas feliz.
+                    Prometo estar para ti tanto como tú lo estás para mí —y aún más si hiciera falta—. Te doy las
+                    gracias por hacerme tan, pero tan feliz: cada gesto tuyo, por pequeño que sea, me llena de calor
+                    y significado. Contigo encontré un lugar seguro; una calma que no sabía que necesitaba.
+                </p>
+                <p>
+                    En las noches en las que no encuentras palabras, quiero ser tu abrazo. Cuando la vida sea agitada,
+                    quiero ser tu calma. Me esfuerzo por escucharte de verdad, por aprender tus silencios y celebrarlos
+                    con pequeñas acciones: enviarte un mensaje tonto que te saque una sonrisa, o estar
+                    en el sofá hasta que quieras hablar. Cada día intento ser la persona que te mereces, y aprender a
+                    quererte mejor.
+                </p>
+            </div>
+
+            <div class="section">
+                <h2>🌙 Capítulo 2</h2>
+                <p>
+                    Eres perfección en este mundo tan jodido. Gracias por tu cariño y por la forma en la que siempre
+                    me haces sentir acompañado; tanto tus silencios como tus palabras me reconfortan. Todo lo que te
+                    hace ser tú me causa alegría, y agradezco cada detalle, cada risa, cada pausa compartida.
+                    Nuestra complicidad es un tesoro que no cambiaría por nada. Gracias por caminar conmigo, por
+                    elegirme cada día y, sobre todo, por dejarme amarte.
+                </p>
+                <p>
+                    Cuando pienso en el futuro me imagino pequeños rituales contigo: las tardes de domingo, proyectos
+                    compartidos, y la tranquilidad de saber que hagamos lo que hagamos, lo haremos juntos. No prometo
+                    perfección, pero sí prometo esfuerzo, honestidad y constancia. Si algún día fallara, quiero que sepas
+                    que intentaré enmendarlo y aprender de ello. Porque contigo estoy aprendiendo que el amor verdadero es también
+                    trabajo y voluntad de mejorar cada día.
+                </p>
+            </div>
+
+            <!-- Video section removed as requested -->
+
+            <div class="section">
+                <h2>🌸 Mensajes de mi corazón</h2>
+                <p>Elige un corazón y déjate llevar por un pequeño susurro:</p>
+
+                <div class="hearts">
+                    <div class="heart" role="button" tabindex="0" onclick="showMsg('Eres mi lugar favorito en todo el mundo 💘', this)">❤️</div>
+                    <div class="heart" role="button" tabindex="0" onclick="showMsg('Gracias por cada risa, por cada silencio compartido 💫', this)">💗</div>
+                    <div class="heart" role="button" tabindex="0" onclick="showMsg('Te quiero 3 millones ✨', this)">💕</div>
+                </div>
+
+                <p id="msg" class="reveal-msg"></p>
+            </div>
+
+            <div class="section" id="songExplain">
+                <h2>🎵 ¿Por qué esta canción?</h2>
+
+                <blockquote class="small-muted song-quote">
+                    "En 'Smithereens', Tyler Joseph (Twenty One Pilots) escribe una canción ingeniosa para su esposa, Jenna Joseph. Para demostrar su devoción,
+                    describe una situación hipotética para mostrar hasta dónde llegaría para protegerla, a pesar de las consecuencias para su propio bienestar."
+                    <br>
+                    — Fuente: Genius (traducción al español)
+                </blockquote>
+
+                <p>
+                    Siento exactamente lo mismo por mi risita. Elegí esta canción porque refleja, en pocas líneas, el deseo de anteponer
+                    la felicidad y la seguridad de la persona que amo, aunque cueste o pese. Si pienso en ti, me imagino dispuesto a hacer
+                    lo que haga falta para cuidarte y protegerte; darte tiempo, paciencia, y todo lo que esté en mi mano para verte bien y
+                    feliz. Esta canción me ayuda a decirlo cuando las palabras se quedan cortas.
+                </p>
+
+                <p class="signature">Con todo mi cariño,<br>— Axel</p>
+            </div>
+
+        </div>
+
+    </div>
+
+<script src="script.js"></script>
+</body>
+</html>
