@@ -207,7 +207,6 @@ document.addEventListener('DOMContentLoaded', function(){
     const vinyl = document.getElementById('vinyl');
     const record = vinyl ? vinyl.querySelector('.record') : null;
     const needle = document.querySelector('.needle');
-    const playBtn = document.getElementById('vinylPlayBtn');
     const audio = document.getElementById('audioPlayer');
 
     if(!audio) return;
@@ -232,13 +231,7 @@ document.addEventListener('DOMContentLoaded', function(){
         if(needle) needle.classList.toggle('playing', !!on);
         // update aria on audio
         if(on) audio.setAttribute('aria-label','Reproduciendo'); else audio.setAttribute('aria-label','Pausado');
-        // update fallback play button text/state if present
-        if(typeof playBtn !== 'undefined' && playBtn){
-            try{
-                playBtn.innerText = on ? 'Pausar' : 'Reproducir';
-                playBtn.setAttribute('aria-pressed', on ? 'true' : 'false');
-            }catch(e){ /* ignore if DOM changed */ }
-        }
+        // no fallback button to update (vinyl click is primary control)
     }
 
     // Bind click on the vinyl element
@@ -249,7 +242,7 @@ document.addEventListener('DOMContentLoaded', function(){
         vinyl.addEventListener('keydown', (e)=>{ if(e.key === 'Enter' || e.key === ' ') { e.preventDefault(); togglePlay(); } });
     }
 
-    if(playBtn) playBtn.addEventListener('click', togglePlay);
+    // no separate play button; vinyl element handles togglePlay
 
     // When audio ends, stop animations
     audio.addEventListener('ended', ()=>{ setPlaying(false); });
@@ -262,6 +255,6 @@ document.addEventListener('DOMContentLoaded', function(){
     // If audio fails to load, log error and show a visible hint to the user
     audio.addEventListener('error', (ev)=>{
         console.warn('Audio failed to load or is blocked', ev);
-        if(vinylNoteEl) vinylNoteEl.innerText = 'No se pudo cargar la canción. Usa el botón "Reproducir" o revisa la conexión.';
+        if(vinylNoteEl) vinylNoteEl.innerText = 'No se pudo cargar la canción. Revisa la conexión o inténtalo de nuevo.';
     });
 });
